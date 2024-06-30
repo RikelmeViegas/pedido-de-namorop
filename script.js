@@ -4,7 +4,16 @@ document.getElementById('accept-button').addEventListener('click', function() {
     
     // Aguarda a transição antes de redirecionar para o contrato de namoro
     setTimeout(function() {
-        window.location.href = "contrato.html";
+        // Obtém a data atual
+        var currentDate = new Date();
+        var formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+        
+        // Mensagem personalizada com a data atual
+        var mensagem = `A partir desta data ${formattedDate}, eu assinei o contrato e aceito ser a namorada de Rikelmen, por que ...`;
+
+        // Redirecionamento para o WhatsApp com a mensagem personalizada
+        var whatsappLink = `https://wa.me/5583999497619?text=${encodeURIComponent(mensagem)}`;
+        window.location.href = whatsappLink;
     }, 300); // Tempo em milissegundos correspondente à duração da transição (0.3 segundos)
 });
 
